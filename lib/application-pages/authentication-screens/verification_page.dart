@@ -1,8 +1,4 @@
 import 'dart:convert';
-
-import 'package:agriteck_user/application-pages/authentication-screens/investor-login/registration-page.dart';
-import 'package:agriteck_user/application-pages/authentication-screens/vendor-login/registration-page.dart';
-import 'package:agriteck_user/application-pages/authentication-screens/phone_verification.dart';
 import 'package:agriteck_user/application-pages/welcome_page.dart';
 import 'package:agriteck_user/common-functions/helper-functions.dart';
 import 'package:agriteck_user/commonly-used-widget/clickable-text.dart';
@@ -225,7 +221,7 @@ class _OTPScreenState extends State<OTPScreen> {
               //so if the user found is true
               await SharedPrefs.setUserID(value.user.uid);
               await SharedPrefs.setUserName(value.user.displayName);
-              await SharedPrefs.setUserPhone(value.user.phoneNumber);
+
 
               await showSnackBar(
                   "Log in successful...", _scaffoldKey.currentState);
@@ -268,16 +264,9 @@ class _OTPScreenState extends State<OTPScreen> {
                   Navigator.pop(context);
                 },
                 btn2Press: () async {
-                  var userType = await SharedPrefs.getUserType();
                   setState(() {
-                    if (userType == 'Farmers') {
-                      sendToPage(context, FarmerRegistrationForm(widget.phone));
-                    } else if (userType == 'Vendors') {
-                      sendToPage(context, VendorRegistrationForm(widget.phone));
-                    } else {
-                      sendToPage(
-                          context, InvestorRegistrationForm(widget.phone));
-                    }
+                    sendToPage(context, FarmerRegistrationForm(widget.phone));
+
                     //if the user accepts, then we send the user to the registration form
                     // sendToPage(context,
                     //     RegistrationSelectionPage(phoneNum: widget.phone));

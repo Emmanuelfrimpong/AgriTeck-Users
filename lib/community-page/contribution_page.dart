@@ -1,13 +1,7 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:agriteck_user/common-functions/helper-functions.dart';
-import 'package:agriteck_user/commonly-used-widget/round_button.dart';
-import 'package:agriteck_user/commonly-used-widget/shape-painter.dart';
-import 'package:agriteck_user/commonly-used-widget/textField.dart';
 import 'package:agriteck_user/community-page/contribution_upload_image.dart';
-import 'package:agriteck_user/constant.dart';
-import 'package:agriteck_user/services/database-services.dart';
 import 'package:agriteck_user/styles/app-colors.dart';
 import 'package:agriteck_user/styles/app-styles.dart';
 import 'package:flutter/material.dart';
@@ -217,18 +211,23 @@ class _ContributionScreenState extends State<ContributionScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FlatButton.icon(
-                padding: const EdgeInsets.symmetric(
+              TextButton.icon(
+                style: TextButton.styleFrom(
+                 padding: const EdgeInsets.symmetric(
                   vertical: 10.0,
                   horizontal: 60.0,
                 ),
+                  backgroundColor: primaryDark,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                 
+                ),
+               
                 onPressed: () {
                   _showPicker(context);
                 },
-                color: primaryDark,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
+              
                 icon: const Icon(
                   Icons.photo_camera,
                   color: Colors.white,
@@ -237,7 +236,7 @@ class _ContributionScreenState extends State<ContributionScreen> {
                   'Capture Plant',
                   style: Styles.buttonTextStyle,
                 ),
-                textColor: Colors.white,
+              
               ),
             ],
           )

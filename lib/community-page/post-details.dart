@@ -1,8 +1,8 @@
-import 'package:agriteck_user/commonly-used-widget/image-carousel.dart';
+
 import 'package:agriteck_user/model-data/DataModels.dart';
 import 'package:agriteck_user/styles/app-colors.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_pro/carousel_pro.dart';
+
 
 class PostDetailScreen extends StatefulWidget {
   @override
@@ -62,7 +62,7 @@ class Details extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ImageCarousel(['']),
+               // ImageCarousel(['']),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

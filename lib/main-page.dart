@@ -5,37 +5,24 @@ import 'package:agriteck_user/commonly-used-widget/custom_app_bar.dart';
 import 'package:agriteck_user/commonly-used-widget/dailog-box.dart';
 import 'package:agriteck_user/commonly-used-widget/detect-disease.dart';
 import 'package:agriteck_user/commonly-used-widget/floating-buttton.dart';
-import 'package:agriteck_user/commonly-used-widget/floating-menu.dart';
 import 'package:agriteck_user/community-page/commuinity-page.dart';
 import 'package:agriteck_user/community-page/contribution_page.dart';
-import 'package:agriteck_user/crops-page/crops-page.dart';
 import 'package:agriteck_user/diseases-page/diseases-page.dart';
-import 'package:agriteck_user/farms-page/farm-page.dart';
 import 'package:agriteck_user/home-page/home-screen.dart';
-import 'package:agriteck_user/investment-page/investment_page.dart';
-import 'package:agriteck_user/investors/investor.dart';
 import 'package:agriteck_user/pojo-classes/tips-data.dart';
-import 'package:agriteck_user/products-page/products_page.dart';
 import 'package:agriteck_user/services/sharedPrefs.dart';
-import 'package:agriteck_user/vendors/vendor.dart';
 import 'package:async_loader/async_loader.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:agriteck_user/styles/app-colors.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'farms-page/new-farm-page.dart';
+
 
 enum BottomButtons {
-  Crops,
-  Farms,
+  
   Home,
-  Vendors,
-  Market,
-  Investors,
   Community,
   Diseases,
-  Investments
 }
 
 class MainPage extends StatefulWidget {
@@ -62,56 +49,19 @@ class _MainPageState extends State<MainPage> {
   }
 
   getUserInfo() async {
-    userType = await SharedPrefs.getUserType();
-    userName = await SharedPrefs.getUsername();
-    userPhone = await SharedPrefs.getUserPhone();
-    userImage = await SharedPrefs.getUserPhoto();
+
   }
 
-  //===============================================================================
-// here we check which page we are , then we show the user the corressponding Title on the app bar
   setPageTitle() {
     String title = '';
-    if (selectedPage == BottomButtons.Farms) title = 'Farms';
     if (selectedPage == BottomButtons.Diseases) title = 'Diseases';
     if (selectedPage == BottomButtons.Community) title = 'Community';
-    if (selectedPage == BottomButtons.Market) title = 'Product List';
-    if (selectedPage == BottomButtons.Investments) title = 'Investments';
     return title;
   }
 
-//===============================================================================
-// here we check which page we are , then we show the user the corressponding floating action buton
+
   Widget setFloatBott(selectedPage) {
-    return selectedPage == BottomButtons.Farms && (userType == 'Farmers')
-        ? FloatingMenu(
-            // label: 'Post Product',
-            animatedIcon: AnimatedIcons.menu_close,
-            menuItems: [
-              BubbleMenuItem.create(
-                label: 'Investors',
-                icon: Icons.group,
-                onPress: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => InvestorScreen()));
-                },
-              ),
-              BubbleMenuItem.create(
-                label: 'Add Farm',
-                icon: Icons.add,
-                onPress: () {
-                  setState(() {
-                    sendToPage(context, NewFarm());
-                  });
-                },
-              ),
-            ],
-            // onPressHandler: () {},
-          )
-        : selectedPage == BottomButtons.Community ||
-                selectedPage == BottomButtons.Crops
+    return  selectedPage == BottomButtons.Community 
             ? FloatingButton(
                 label: 'Ask Community',
                 icon: Icons.edit,
@@ -128,9 +78,6 @@ class _MainPageState extends State<MainPage> {
                 : null;
   }
 
-//================================================================================
-  //here we prompt the user when he/she tries to press back on the main page
-  //when the user tries to quit the application by pressing back
   Future<bool> _onBackPressed() async {
     return showDialog(
             context: context,
@@ -232,53 +179,6 @@ class _MainPageState extends State<MainPage> {
             activeColor: primary,
             activeIconColor: primary,
           ),
-          // if (userType == 'Farmers')
-          //   BottomIcons(
-          //     iconColor: Colors.grey,
-          //     text: 'Diseases',
-          //     bottomIcons:
-          //         selectedPage == BottomButtons.Diseases ? true : false,
-          //     icons: 'assets/icons/cultivate.png',
-          //     textColor: primary,
-          //     onPressed: () {
-          //       setState(() {
-          //         selectedPage = BottomButtons.Diseases;
-          //       });
-          //     },
-          //     activeColor: primary,
-          //     activeIconColor: primary,
-          //   ),
-          if (userType == 'Farmers' || userType == 'Investors')
-            BottomIcons(
-              iconColor: Colors.grey,
-              text: 'Farms',
-              bottomIcons: selectedPage == BottomButtons.Farms ? true : false,
-              icons: 'assets/icons/farm.png',
-              textColor: primary,
-              onPressed: () {
-                setState(() {
-                  selectedPage = BottomButtons.Farms;
-                });
-              },
-              activeColor: primary,
-              activeIconColor: primary,
-            ),
-          if (userType == 'Farmers' || userType == 'Investors')
-            BottomIcons(
-              iconColor: Colors.grey,
-              text: 'Investments',
-              bottomIcons:
-                  selectedPage == BottomButtons.Investments ? true : false,
-              icons: 'assets/icons/community.png',
-              textColor: primary,
-              onPressed: () {
-                setState(() {
-                  selectedPage = BottomButtons.Investments;
-                });
-              },
-              activeColor: primary,
-              activeIconColor: primary,
-            ),
           BottomIcons(
             iconColor: Colors.grey,
             text: 'Community',
@@ -293,21 +193,6 @@ class _MainPageState extends State<MainPage> {
             activeColor: primary,
             activeIconColor: primary,
           ),
-          if (userType == 'Vendors')
-            BottomIcons(
-              iconColor: Colors.grey,
-              text: 'Market',
-              bottomIcons: selectedPage == BottomButtons.Market ? true : false,
-              icons: 'assets/icons/market.png',
-              textColor: primary,
-              onPressed: () {
-                setState(() {
-                  selectedPage = BottomButtons.Market;
-                });
-              },
-              activeColor: primary,
-              activeIconColor: primary,
-            ),
         ],
       ),
     );
@@ -323,47 +208,6 @@ class _MainPageState extends State<MainPage> {
               physics: NeverScrollableScrollPhysics(),
               children: [
                 _asyncLoader,
-                ListTile(
-                  leading: Image(
-                    width: 24,
-                    image: AssetImage('assets/icons/cultivate.png'),
-                    color: Colors.black54,
-                  ),
-                  trailing: Icon(Icons.chevron_right),
-                  title: Text(
-                    'Crops',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black54,
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                    // Send to Crops Page
-                    sendToPage(context, CropsScreen());
-                  },
-                ),
-                if (userType != 'Vendors')
-                  ListTile(
-                    leading: Image(
-                      width: 24,
-                      image: AssetImage('assets/icons/market.png'),
-                      color: Colors.black54,
-                    ),
-                    trailing: Icon(Icons.chevron_right),
-                    title: Text(
-                      'Market',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black54,
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.pop(context);
-                      // Send to Crops Page
-                      sendToPage(context, ProductFullScreen());
-                    },
-                  ),
                 ListTile(
                   leading: Image(
                     width: 24,
@@ -464,13 +308,7 @@ class _MainPageState extends State<MainPage> {
                 ? CommunityScreen()
                 : selectedPage == BottomButtons.Diseases
                     ? DiseasesScreen()
-                    : selectedPage == BottomButtons.Farms
-                        ? FarmsScreen()
-                        : selectedPage == BottomButtons.Investments
-                            ? InvestmentScreen()
-                            : selectedPage == BottomButtons.Market
-                                ? ProductsMidScreen()
-                                : Container(),
+                    : Container(),
         bottomNavigationBar: Container(
             height: 70,
             width: MediaQuery.of(context).size.width,

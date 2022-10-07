@@ -1,4 +1,4 @@
-import 'package:agriteck_user/commonly-used-widget/image-carousel.dart';
+
 import 'package:agriteck_user/pojo-classes/diseases-data.dart';
 import 'package:agriteck_user/styles/app-colors.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class DiseaseDetailsScreen extends StatelessWidget {
         child: Column(
           children: [
             // todo: image from network
-            ImageCarousel([...diseaseData.images]),
+           // ImageCarousel([...diseaseData.images]),
             Container(
               height: size.height * 0.70,
               decoration: BoxDecoration(

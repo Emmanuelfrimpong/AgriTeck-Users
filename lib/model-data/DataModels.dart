@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class CommunityData {
   final String postImage;
@@ -21,41 +20,6 @@ class CommunityData {
       this.postDescription});
 }
 
-class Crops {
-  String cropName, cropId, prefereSoil, cropDescription;
-  List cropSpecies, cropPestAndDisease, tips;
-
-  Crops(
-      {this.cropName,
-      this.cropId,
-      this.prefereSoil,
-      this.cropDescription,
-      this.cropSpecies,
-      this.cropPestAndDisease,
-      this.tips});
-
-  Map<String, dynamic> toMap() {
-    var map = Map<String, dynamic>();
-    map['cropName'] = cropName;
-    map['cropId'] = cropId;
-    map['prefereSoil'] = prefereSoil;
-    map['cropDescription'] = cropDescription;
-    map['cropSpecies'] = cropSpecies;
-    map['cropPestAndDisease'] = cropPestAndDisease;
-    map['tips'] = tips;
-    return map;
-  }
-
-  Crops.fromMapObject(Map<String, dynamic> map) {
-    this.cropName = map['cropName'];
-    this.cropId = map['cropId'];
-    this.prefereSoil = map['prefereSoil'];
-    this.cropDescription = map['cropDescription'];
-    this.cropSpecies = map['cropSpecies'];
-    this.cropPestAndDisease = map['cropPestAndDisease'];
-    this.tips = map['tips'];
-  }
-}
 
 class ComunityComent {
   final String comenterName;
@@ -120,38 +84,3 @@ class GetComent {
   }
 }
 
-class Investors {
-  String InvestorName, InvestorId, Investorphone, InvestorLocation, InvestorImage, InvestorEmail;
-  List InvestorInterest;
-
-  Investors(
-      {this.InvestorName,
-        this.InvestorId,
-        this.Investorphone,
-        this.InvestorLocation,
-        this.InvestorImage,
-        this.InvestorEmail,
-        this.InvestorInterest});
-
-  Map<String, dynamic> toMap() {
-    var map = Map<String, dynamic>();
-    map['Benson Gyimah'] = InvestorName;
-    map['IN12142'] = InvestorId;
-    map['+233244954758'] = Investorphone;
-    map['Takoradi Nsoem'] = InvestorLocation;
-    map['assets/diseases/farmer1.jpg'] = InvestorImage;
-    map['hshdgh@gmail.com'] = InvestorEmail;
-    map['Cereals'] = InvestorInterest;
-    return map;
-  }
-
-  Investors.fromMapObject(Map<String, dynamic> map) {
-    this.InvestorName = map['Benson Gyimah'];
-    this.InvestorId = map['IN12142'];
-    this.Investorphone = map['233244954758'];
-    this.InvestorLocation = map['Takoradi Nsoem'];
-    this.InvestorImage = map['assets/diseases/farmer1.jpg'];
-    this.InvestorInterest = map['cereal'];
-    this.InvestorEmail = map['hshdgh@gmail.com'];
-  }
-}

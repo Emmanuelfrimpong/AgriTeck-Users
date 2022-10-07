@@ -9,7 +9,6 @@ import 'package:agriteck_user/services/weather-services.dart';
 import 'package:agriteck_user/styles/app-colors.dart';
 import 'package:agriteck_user/styles/app-styles.dart';
 import 'package:async_loader/async_loader.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../constant.dart';
@@ -141,18 +140,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    FlatButton.icon(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10.0,
-                        horizontal: 20.0,
+                    TextButton.icon(
+                      style: TextButton.styleFrom(
+                        backgroundColor: primaryDark,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 10.0,
+                          horizontal: 20.0,
+                        ),
                       ),
                       onPressed: () {
                         //ToDo here we open tips details dialog
                       },
-                      color: primaryDark,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
                       icon: const Icon(
                         FontAwesomeIcons.readme,
                         color: Colors.white,
@@ -161,7 +162,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         'Read More',
                         style: Styles.buttonTextStyle,
                       ),
-                      textColor: Colors.white,
                     ),
                   ],
                 ),
@@ -218,18 +218,20 @@ class _HomeScreenState extends State<HomeScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FlatButton.icon(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 10.0,
-                  horizontal: 60.0,
+              TextButton.icon(
+                style: TextButton.styleFrom(
+                  backgroundColor: primaryDark,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10.0,
+                    horizontal: 20.0,
+                  ),
                 ),
                 onPressed: () {
                   detectDisease(context);
                 },
-                color: primaryDark,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
                 icon: const Icon(
                   FontAwesomeIcons.camera,
                   color: Colors.white,
@@ -238,7 +240,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Capture Plant',
                   style: Styles.buttonTextStyle,
                 ),
-                textColor: Colors.white,
               ),
             ],
           ),

@@ -19,16 +19,11 @@ class RoundedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      shape: RoundedRectangleBorder(
-        borderRadius: new BorderRadius.circular(30.0),
+    return  TextButton(
+      style: TextButton.styleFrom(
+        backgroundColor: primary,
       ),
-      hoverColor: color.withOpacity(0.4),
-      splashColor: color.withOpacity(0.3),
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       onPressed: press,
-      highlightColor: primaryLight,
-      color: color,
       child:  isLoading != null && isLoading
           ? Image.asset(
         'assets/images/spinner.gif',

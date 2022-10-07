@@ -44,8 +44,7 @@ Future<File> detectDisease(BuildContext context) {
                       //detect the crop disease
                       predictDesease(imageFile).then((predictions) async {
                         print('===========$predictions');
-                        //print(predictions);
-                        //show the details of the crop
+                        
                         Navigator.of(context).pop();
                         await Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
@@ -56,7 +55,7 @@ Future<File> detectDisease(BuildContext context) {
                         }));
                       });
                     } else {
-                      // showToast(content: 'No Image Selected');
+                      
                     }
                   },
                 ),

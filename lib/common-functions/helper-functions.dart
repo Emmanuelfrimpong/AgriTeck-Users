@@ -69,7 +69,7 @@ Future<void> showSnackBar(
     ),
     duration: Duration(milliseconds: 4000),
   );
-  state.showSnackBar(_snackBar);
+  // state.showSnackBar(_snackBar);
   await Future.delayed(Duration(seconds: 1));
 }
 

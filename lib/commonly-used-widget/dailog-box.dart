@@ -80,21 +80,25 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                 child: Container(
                   child: Wrap(
                     children: [
-                      FlatButton(
-                          color: primary,
-                          textColor: Colors.white,
+                      TextButton(
+                         style: TextButton.styleFrom(
+                          backgroundColor: primary,
+                         
+                       
+                         ),
                           onPressed: widget.btn1Press,
                           child: Text(
                             widget.btn1Text,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18, color: Colors.white),
                           )),
                       SizedBox(
                         width: 20,
                       ),
                       widget.btn2Text != null
-                          ? FlatButton(
-                              color: primaryDark,
-                              textColor: Colors.white,
+                          ?  TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor: primaryDark,
+                              ),
                               onPressed: widget.btn2Press,
                               child: Text(
                                 widget.btn2Text,

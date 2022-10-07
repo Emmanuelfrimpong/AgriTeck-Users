@@ -1,11 +1,5 @@
-import 'package:agriteck_user/application-pages/authentication-screens/farmer-login/registration-pages.dart';
-import 'package:agriteck_user/application-pages/authentication-screens/investor-login/registration-page.dart';
-import 'package:agriteck_user/application-pages/authentication-screens/vendor-login/registration-page.dart';
-import 'package:agriteck_user/application-pages/authentication-screens/phone_verification.dart';
-import 'package:agriteck_user/common-functions/helper-functions.dart';
-import 'package:agriteck_user/commonly-used-widget/round_button.dart';
+
 import 'package:agriteck_user/commonly-used-widget/shape-painter.dart';
-import 'package:agriteck_user/services/sharedPrefs.dart';
 import 'package:agriteck_user/styles/app-colors.dart';
 import 'package:flutter/material.dart';
 
@@ -83,39 +77,7 @@ class WelcomeScreen extends StatelessWidget {
                       SizedBox(
                         height: 30,
                       ),
-                      Text(
-                        'Continue As',
-                        style: TextStyle(fontSize: 24.0, color: Colors.black54),
-                      ),
-                      SizedBox(height: 30),
-                      _raisedButton(
-                        onPressed: () async {
-                          var p = await SharedPrefs.setUserType('Farmers');
-                          print('>>> $p');
-                          sendToPage(context, PhoneVerification());
-                        },
-                        text: 'Farmer',
-                        width: _width * 0.8,
-                      ),
-                      _raisedButton(
-                        onPressed: () async {
-                          var check = await SharedPrefs.setUserType('Vendors');
-                          print('>>>>> $check');
-                          sendToPage(context, PhoneVerification());
-                        },
-                        text: 'Vendor',
-                        width: _width * 0.8,
-                      ),
-                      _raisedButton(
-                        onPressed: () async {
-                          var check =
-                              await SharedPrefs.setUserType('Investors');
-                          print('>>>> $check');
-                          sendToPage(context, PhoneVerification());
-                        },
-                        text: 'Investor',
-                        width: _width * 0.8,
-                      ),
+                     
                     ],
                   ),
                 ),
@@ -132,16 +94,20 @@ class WelcomeScreen extends StatelessWidget {
     return Container(
       width: width,
       // ignore: deprecated_member_use
-      child: RaisedButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(20.0),
+      child: TextButton(
+        style: TextButton.styleFrom(
+          backgroundColor: primary,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
         ),
+        
         onPressed: onPressed,
         child: Text(
           text,
           style: TextStyle(color: Colors.white, fontSize: 18),
         ),
-        color: primary,
+       
       ),
     );
   }
