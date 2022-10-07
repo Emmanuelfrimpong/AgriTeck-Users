@@ -4,11 +4,14 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'Screens/Home/HomePage.dart';
 import 'Services/sharedPrefs.dart';
 import 'Services/user-services.dart';
+import 'firebase_options.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+ await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   final _position = await SharedPrefs.getPositionInfo();
   if (_position == null) {
     await preferCurrentLoc();
