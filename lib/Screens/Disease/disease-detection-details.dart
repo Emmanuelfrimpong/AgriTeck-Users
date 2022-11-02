@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-
 import '../../styles/app-colors.dart';
 
 class DiseaseDetection extends StatefulWidget {

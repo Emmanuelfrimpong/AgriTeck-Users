@@ -3,11 +3,10 @@ import 'package:agriteck_user/common-functions/helper-functions.dart';
 import 'package:agriteck_user/commonly-used-widget/bottom-icons.dart';
 import 'package:agriteck_user/commonly-used-widget/custom_app_bar.dart';
 import 'package:agriteck_user/commonly-used-widget/dailog-box.dart';
-import 'package:agriteck_user/commonly-used-widget/detect-disease.dart';
+
 import 'package:agriteck_user/commonly-used-widget/floating-buttton.dart';
 import 'package:agriteck_user/community-page/commuinity-page.dart';
 import 'package:agriteck_user/community-page/contribution_page.dart';
-import 'package:agriteck_user/diseases-page/diseases-page.dart';
 import 'package:agriteck_user/home-page/home-screen.dart';
 import 'package:agriteck_user/pojo-classes/tips-data.dart';
 import 'package:agriteck_user/services/sharedPrefs.dart';
@@ -19,7 +18,6 @@ import 'package:flutter/services.dart';
 
 
 enum BottomButtons {
-  
   Home,
   Community,
   Diseases,
@@ -67,14 +65,7 @@ class _MainPageState extends State<MainPage> {
                 icon: Icons.edit,
                 onPressHandler: () {},
               )
-            : selectedPage == BottomButtons.Diseases
-                ? FloatingButton(
-                    label: 'Detect Disease',
-                    icon: Icons.photo_camera,
-                    onPressHandler: () {
-                      detectDisease(context);
-                    },
-                  )
+            
                 : null;
   }
 
@@ -223,9 +214,7 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                   onTap: () {
-                    Navigator.pop(context);
-                    // Send to Diseases Page
-                    sendToPage(context, DiseasesScreen());
+                   
                   },
                 ),
                 ListTile(
@@ -306,8 +295,7 @@ class _MainPageState extends State<MainPage> {
               )
             : selectedPage == BottomButtons.Community
                 ? CommunityScreen()
-                : selectedPage == BottomButtons.Diseases
-                    ? DiseasesScreen()
+                
                     : Container(),
         bottomNavigationBar: Container(
             height: 70,

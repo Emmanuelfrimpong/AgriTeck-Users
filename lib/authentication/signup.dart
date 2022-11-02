@@ -7,7 +7,6 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../FirebaseServices.dart';
 import '../Objects/UserObject.dart';
 import '../Screens/Home/HomePage.dart';
@@ -49,8 +48,8 @@ class _SignupPageState extends State<SignupPage> {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
-                            FirebaseAuth.instance.signOut();
-                            exit(0);
+                            FirebaseAuth.instance.signOut().then((value) =>  exit(0));
+                           
                           },
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.red.shade800),
@@ -84,7 +83,7 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
-    var screenWidth = MediaQuery.of(context).size.width;
+
     return WillPopScope(
       onWillPop: () => showExitPopup(context),
       child: Scaffold(
@@ -239,7 +238,7 @@ class _SignupPageState extends State<SignupPage> {
       SmartDialog.showToast("User Data Saved Successfully");
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => const HomePage(),
+          builder: (context) => const HomeMainPage(),
         ),
       );
     } else {
@@ -267,7 +266,7 @@ Widget inputFile({label, obscureText = false, controller, int max = 1}) {
         maxLines: max,
         decoration: InputDecoration(
             contentPadding:
-                const EdgeInsets.symmetric(vertical: 115, horizontal: 10),
+                const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey[400]),
             ),

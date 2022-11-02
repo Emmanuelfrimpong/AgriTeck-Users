@@ -14,14 +14,14 @@ import '../Community/CommunityPage.dart';
 import '../HomePage/Home.dart';
 import '../Profile/ProfilePage.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
+class HomeMainPage extends StatefulWidget {
+  const HomeMainPage({Key key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeMainPage> createState() => _HomeMainPageState();
 }
 
-class _HomePageState extends State<HomePage> with AfterLayoutMixin<HomePage> {
+class _HomeMainPageState extends State<HomeMainPage> with AfterLayoutMixin<HomeMainPage> {
   final PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
 
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> with AfterLayoutMixin<HomePage> {
 
   List<Widget> _buildScreens() {
     return [
-      HomeMain(),
+       const HomeMain(),
       const CommunityPage(),
       const ProfilePage(),
     ];

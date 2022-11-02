@@ -20,7 +20,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +66,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 );
               } else {
-                if (snapshot.hasData) {
+                if (snapshot.hasData&& snapshot.data!=null&&snapshot.data.exists) {
+                  Map<String, dynamic> data =
+                      snapshot.data.data() as Map<String, dynamic>;
+                  print("Map===========================$data");
                   var userData = UserObject.fromJson(
                       snapshot.data.data() as Map<String, dynamic>);
                   // saveDummyData(userData);
@@ -207,6 +209,17 @@ class _ProfilePageState extends State<ProfilePage> {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.remove("user");
       setState(() {});
+    }
+  }
+
+  void saveDummyData(UserObject userData) async {
+    for (var item in dummyPost) {
+      String id = FirebaseFirestore.instance.collection('Posts').doc().id;
+      item.sender = userData.toJson();
+      item.senderId = userData.id;
+      item.id = id;
+      item.createdAt = DateTime.now().toUtc().millisecondsSinceEpoch;
+      await FirebaseServices().saveReport(item);
     }
   }
 }

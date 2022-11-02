@@ -87,7 +87,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         sharedPreferences.setString('user', userData);
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => const HomePage(),
+            builder: (context) => const HomeMainPage(),
           ),
         );
       }

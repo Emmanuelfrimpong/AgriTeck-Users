@@ -50,21 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB4r8ATjb81RkUCt-M3eUPq0YpjSA718pQ',
-    appId: '1:660792156337:android:6aecf08a83acdf9a2e4290',
-    messagingSenderId: '660792156337',
-    projectId: 'agriteck-18d5c',
-    storageBucket: 'agriteck-18d5c.appspot.com',
+    apiKey: 'AIzaSyCK0TzKg0GMGSx-hcKhkyNDEO0H76jqzfk',
+    appId: '1:652066714564:android:8b19262173eb1def206a91',
+    messagingSenderId: '652066714564',
+    projectId: 'agriteck-6e082',
+    storageBucket: 'agriteck-6e082.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBi29DbtYHbnKCbArnSH1UfH8FrzlX6cQY',
-    appId: '1:660792156337:ios:9ad0d6f2cdb4a9c82e4290',
-    messagingSenderId: '660792156337',
-    projectId: 'agriteck-18d5c',
-    storageBucket: 'agriteck-18d5c.appspot.com',
-    androidClientId: '660792156337-ersv3950hq9rr07r94ra4smjds6nrclc.apps.googleusercontent.com',
-    iosClientId: '660792156337-8rjnvgvc0utc0t4ld4c6pvuft8t5sqsj.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCoZ_ltP6U6Esr59Csc-zE7O9uIAjx8TRE',
+    appId: '1:652066714564:ios:a22a906d009a47f3206a91',
+    messagingSenderId: '652066714564',
+    projectId: 'agriteck-6e082',
+    storageBucket: 'agriteck-6e082.appspot.com',
+    iosClientId: '652066714564-r8vike63cn07bij2ko581nas34pjk8h3.apps.googleusercontent.com',
     iosBundleId: 'com.agriteck.agriteckUser',
   );
 }

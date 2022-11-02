@@ -1,85 +1,34 @@
 {
   "project_info": {
-    "project_number": "660792156337",
-    "project_id": "agriteck-18d5c",
-    "storage_bucket": "agriteck-18d5c.appspot.com"
+    "project_number": "652066714564",
+    "project_id": "agriteck-6e082",
+    "storage_bucket": "agriteck-6e082.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:660792156337:android:6aecf08a83acdf9a2e4290",
+        "mobilesdk_app_id": "1:652066714564:android:8b19262173eb1def206a91",
         "android_client_info": {
           "package_name": "com.agriteck.agriteck_user"
         }
       },
       "oauth_client": [
         {
-          "client_id": "660792156337-t1p58serafi4gck3bpld5t483jak47j2.apps.googleusercontent.com",
+          "client_id": "652066714564-3f6j84ejfd30uqpba8gbrml4kkq65gdl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB4r8ATjb81RkUCt-M3eUPq0YpjSA718pQ"
+          "current_key": "AIzaSyCK0TzKg0GMGSx-hcKhkyNDEO0H76jqzfk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "660792156337-t1p58serafi4gck3bpld5t483jak47j2.apps.googleusercontent.com",
+              "client_id": "652066714564-3f6j84ejfd30uqpba8gbrml4kkq65gdl.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "660792156337-b8plec4s21geico2kn29gaqj9clsnss7.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.fihankrah.agriteck"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:660792156337:android:ef6eb5dd38b097432e4290",
-        "android_client_info": {
-          "package_name": "com.fihankrah.agriteck"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "660792156337-ersv3950hq9rr07r94ra4smjds6nrclc.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.fihankrah.agriteck",
-            "certificate_hash": "ce1b803826f5e735c18c93031f87851c9549b86a"
-          }
-        },
-        {
-          "client_id": "660792156337-t1p58serafi4gck3bpld5t483jak47j2.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB4r8ATjb81RkUCt-M3eUPq0YpjSA718pQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "660792156337-t1p58serafi4gck3bpld5t483jak47j2.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "660792156337-b8plec4s21geico2kn29gaqj9clsnss7.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.fihankrah.agriteck"
-              }
             }
           ]
         }

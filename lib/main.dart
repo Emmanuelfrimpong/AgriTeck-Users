@@ -16,13 +16,10 @@ void main() async {
   if (_position == null) {
     await preferCurrentLoc();
   }
- // FirebaseAuth.instance.signOut();
   runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
- 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,7 +30,7 @@ class MyApp extends StatelessWidget {
       ),
       navigatorObservers: [FlutterSmartDialog.observer],
       builder: FlutterSmartDialog.init(),
-      home: const HomePage(),
+      home: const HomeMainPage(),
     );
   }
 }

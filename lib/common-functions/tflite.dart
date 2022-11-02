@@ -17,16 +17,22 @@ Future loadModel() async {
 
 Future predictDesease(var image) async {
   try {
-   
+    // Start a timer for the process
     int startTime = new DateTime.now().millisecondsSinceEpoch;
+    // Load the model
+
     var objectType = await detectImage(image).then((value) => null);
 
     print(objectType);
 
     await loadModel().then((value) => null);
+
+    // Run the Model on the image the is selested
+    // Return a List of Predictions a map datatype
     var prediction = await Tflite.runModelOnImage(
       path: image.path,
       numResults: 5,
+      // threshold: 0.05,
       imageMean: 224.0,
       imageStd: 224.0,
     );
@@ -38,6 +44,9 @@ Future predictDesease(var image) async {
     // Dispose the Tflite to free up resources
     Tflite.close();
 
+    // Return the predictionop
+    print(
+        '=================from first============\n${prediction}\n==============================');
     return prediction;
   } catch (e) {
     print(e);
@@ -64,7 +73,12 @@ Future detectImage(var image) async {
       );
     }
 
+    // Dispose the Tflite to free up resources
     Tflite.close();
+
+    // Return the predictionop
+    print(
+        '=================from first============\n$prediction\n==============================');
     return prediction;
   } catch (e) {
     print(e);

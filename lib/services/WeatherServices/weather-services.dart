@@ -51,7 +51,6 @@ class WeatherServices{
     Function(dynamic error) onError,
   }) async{
     Position loc = await Geolocator.getCurrentPosition();
-      print("location data=========================$loc");
     final url = "$openWeatherMapURL?"
         "lat=${loc.latitude}&lon=${loc.longitude}"
         "&appid=$_apiKey&units=metric";

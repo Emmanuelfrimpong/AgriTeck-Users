@@ -1,7 +1,4 @@
 import 'package:agriteck_user/common-functions/helper-functions.dart';
-import 'package:agriteck_user/commonly-used-widget/clickable-text.dart';
-import 'package:agriteck_user/commonly-used-widget/detect-disease.dart';
-import 'package:agriteck_user/diseases-page/diseases-page.dart';
 import 'package:agriteck_user/home-page/weather-details.dart';
 import 'package:agriteck_user/pojo-classes/tips-data.dart';
 import 'package:agriteck_user/services/sharedPrefs.dart';
@@ -229,8 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     horizontal: 20.0,
                   ),
                 ),
-                onPressed: () {
-                  detectDisease(context);
+                onPressed: () {                                    
                 },
                 icon: const Icon(
                   FontAwesomeIcons.camera,
@@ -246,13 +242,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 10,
           ),
-          ClickableText(
-            text1: "",
-            text2: 'Click to View Diseases List',
-            press: () {
-              sendToPage(context, DiseasesScreen());
-            },
-          )
+          
         ],
       ),
     ));
